@@ -16,4 +16,17 @@ public class CharacterSpawner : MonoBehaviour
             Debug.LogWarning($"Character with name {instantiate.name} created");
         }
     }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Character[] allCharacters = FindObjectsByType<Character>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+            
+            foreach (Character character in allCharacters)
+            {
+                character.gameObject.SetActive(!character.gameObject.activeSelf);
+            }
+        }
+    }
 }

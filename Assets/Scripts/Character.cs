@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
+    public bool IsDead;
+    public int Health = 100;
+
+
     // Start is called before the first frame update
     void Start()
     {
