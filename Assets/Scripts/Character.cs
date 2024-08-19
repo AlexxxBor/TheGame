@@ -5,18 +5,30 @@ using UnityEngine;
 public class Character : MonoBehaviour
 {
     public bool IsDead;
-    public int Health = 100;
+    public bool IsEnemy;
+    public int Hp;
 
-
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
+        Material material = GetComponent<MeshRenderer>().material;
+
+        if (IsEnemy)
+        {
+            material.color = Color.red;
+        }
+        else
+        {
+            material.color = Color.blue;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        if (Hp < 0)
+        {
+            Hp = 0;
+        }
+
+        IsDead = Hp == 0 ? true : false;
     }
 }
