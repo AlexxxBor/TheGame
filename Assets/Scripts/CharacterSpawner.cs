@@ -19,7 +19,6 @@ public class CharacterSpawner : MonoBehaviour
         for (int i = 0; i < Count; i++)
         {
             Character instantiate = Instantiate(Character, new Vector3((spawnPoint.x + i * OffsetBetween) + OffsetFrom, spawnPoint.y, spawnPoint.z), Quaternion.identity);
-            Debug.LogWarning($"Character with name {instantiate.name} created");
         }
     }
 }
