@@ -308,9 +308,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Character: {fileID: 1240810706}
-  OffsetFrom: 2
-  OffsetBetween: 1.5
+  Count: 5
   SpawnPoint: {fileID: 1240810705}
+  OffsetFrom: 1.5
+  OffsetBetween: 1.5
 --- !u!114 &407223989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -340,9 +341,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Character: {fileID: 1952279095}
-  OffsetFrom: 1.5
-  OffsetBetween: 1.2
+  Count: 8
   SpawnPoint: {fileID: 1952279099}
+  OffsetFrom: 1.5
+  OffsetBetween: 1.5
 --- !u!114 &407223991
 MonoBehaviour:
   m_ObjectHideFlags: 0

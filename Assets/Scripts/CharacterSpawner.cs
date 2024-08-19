@@ -6,15 +6,17 @@ using UnityEngine;
 public class CharacterSpawner : MonoBehaviour
 {
     public Character Character;
+    public int Count = 4;
+    public Transform SpawnPoint;
     public float OffsetFrom = 0.5f;
     public float OffsetBetween = 1.0f;
-    public Transform SpawnPoint;
+    
 
     private void Start()
     {
         (float x, float y, float z) spawnPoint = (SpawnPoint.position.x, SpawnPoint.position.y, SpawnPoint.position.z);
 
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < Count; i++)
         {
             Character instantiate = Instantiate(Character, new Vector3((spawnPoint.x + i * OffsetBetween) + OffsetFrom, spawnPoint.y, spawnPoint.z), Quaternion.identity);
             Debug.LogWarning($"Character with name {instantiate.name} created");
