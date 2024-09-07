@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using Assets.Code.Components;
+using Unity.VisualScripting;
+using UnityEngine;
 
 namespace Assets.Code.Weapon
 {
@@ -6,12 +8,14 @@ namespace Assets.Code.Weapon
 
     internal class Bullet : MonoBehaviour
     {
-        private Rigidbody _rigidBody;
+        [SerializeField] float _force;
+
+        private Rigidbody _rigidbody;
         private bool _isActive;
 
         private void Awake()
         {
-            _rigidBody = GetComponent<Rigidbody>();
+            _rigidbody = GetComponent<Rigidbody>();
         }
 
         private void OnBecameInvisible()
@@ -27,6 +31,21 @@ namespace Assets.Code.Weapon
         private void OnCollisionEnter(Collision other)
         {
             Destroy(gameObject);
+
+            if (other.collider.TryGetComponent(out HealthController healthController))
+            {
+                if (healthController.CanTakeDamage(1))
+                {
+                    return;
+                }
+
+                if (other.collider.TryGetComponent(out Rigidbody rigidbody) == false)
+                {
+                    rigidbody = other.collider.AddComponent<Rigidbody>();
+                }
+
+                rigidbody.AddForce(_rigidbody.velocity * _force, ForceMode.Impulse);
+            }
         }
 
         internal void Run(Vector3 path, Vector3 startPosition)
@@ -34,14 +53,14 @@ namespace Assets.Code.Weapon
             transform.position = startPosition;
 
             gameObject.SetActive(true);
-            _rigidBody.WakeUp();
-            _rigidBody.AddForce(path, ForceMode.Impulse);
+            _rigidbody.WakeUp();
+            _rigidbody.AddForce(path, ForceMode.Impulse);
 
             _isActive = true;
         }
         public void Sleep()
         {
-            _rigidBody.Sleep();
+            _rigidbody.Sleep();
             gameObject.SetActive(false);
             _isActive = false;
         }
