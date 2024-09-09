@@ -1,18 +1,47 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro.EditorUtilities;
 using UnityEngine;
 
 public class HealthComponent : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private int _maxHealth = 20;
+    [SerializeField] private int _health = 10;
+
+    public int Health
     {
+        get
+        {
+            return _health;
+        }
         
+        set
+        {
+            _health = value >= _maxHealth ? _maxHealth : value;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public int MaxHealth
     {
-        
+        get
+        {
+            return _maxHealth;
+        }
+    }
+
+    public void TakeDamage(int damage)
+    {
+        if(_health - damage < 0)
+        {
+            _health = 0;
+            return;
+        }
+
+        _health -= damage;
+    }
+
+    public void RestoreHitPoints(int value)
+    {
+        _health = Mathf.Clamp(_health + value, 0, _maxHealth);
     }
 }

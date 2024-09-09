@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 744742198292239868}
   - component: {fileID: 849671120216255769}
   - component: {fileID: 3123889436208954558}
+  - component: {fileID: 2662677636069648981}
   m_Layer: 0
   m_Name: Character [ByTransform]
   m_TagString: Untagged
@@ -132,7 +133,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -149,7 +150,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveComponent: {fileID: 849671120216255769}
-  _rotationComponent: {fileID: 0}
+  _rotationComponent: {fileID: 3123889436208954558}
+  _healthComponent: {fileID: 2662677636069648981}
 --- !u!114 &849671120216255769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,3 +180,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RotationSpeed: 400
   RotationDirection: {x: 0, y: 0, z: 0}
+--- !u!114 &2662677636069648981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1368337058157190460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c0cd26cb6b06234eb83f5308df911f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 20
+  _health: 10
