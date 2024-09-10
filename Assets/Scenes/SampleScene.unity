@@ -191,7 +191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1f7ffb202107ee49bff76dbff481fba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _weapon: {fileID: 1535278179}
+  _weapon: {fileID: 9028279312404056481}
 --- !u!1001 &118931410
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2699,7 +2699,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 186316, guid: 18ea9c7316b4aba44ab093010d1b034d, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 463118, guid: 18ea9c7316b4aba44ab093010d1b034d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2918,7 +2918,7 @@ PrefabInstance:
     - target: {fileID: 863246832717520092, guid: 7842b123d25837745bec336470a4b183,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2945,3 +2945,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b965fa246f310514da5aedd70240aa34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _barrel: {fileID: 0}
+  _force: 0
+  _shotDelay: 0
