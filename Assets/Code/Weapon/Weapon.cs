@@ -78,6 +78,11 @@ namespace Assets.Code.Weapon
                     continue;
                 }
 
+                if (_bullets[i].IsActive)
+                {
+                    continue;
+                }
+
                 candidate = i;
                 break;
             }

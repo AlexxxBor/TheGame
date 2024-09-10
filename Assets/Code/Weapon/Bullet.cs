@@ -1,4 +1,5 @@
 ﻿using Assets.Code.Components;
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -9,6 +10,15 @@ namespace Assets.Code.Weapon
     internal class Bullet : MonoBehaviour
     {
         [SerializeField] float _force;
+        [SerializeField] float _lifeTime = 7.0f;
+
+        public bool IsActive
+        {
+            get
+            {
+                return _isActive;
+            }
+        }
 
         private Rigidbody _rigidbody;
         private bool _isActive;
@@ -16,16 +26,6 @@ namespace Assets.Code.Weapon
         private void Awake()
         {
             _rigidbody = GetComponent<Rigidbody>();
-        }
-
-        private void OnBecameInvisible()
-        {
-            if(_isActive == false)
-            {
-                return;
-            }
-
-            Destroy(gameObject);
         }
 
         private void OnCollisionEnter(Collision other)
@@ -52,17 +52,31 @@ namespace Assets.Code.Weapon
         {
             transform.position = startPosition;
 
+            transform.SetParent(null);
             gameObject.SetActive(true);
+
             _rigidbody.WakeUp();
             _rigidbody.AddForce(path, ForceMode.Impulse);
 
             _isActive = true;
+            StartCoroutine(Die());
         }
         public void Sleep()
         {
             _rigidbody.Sleep();
             gameObject.SetActive(false);
             _isActive = false;
+        }
+
+        private IEnumerator Die()
+        {
+            while(_lifeTime >= 0.0f)
+            {
+                _lifeTime -= 1.0f;
+                yield return new WaitForSeconds(1.0f);
+            }
+
+            Destroy(gameObject);
         }
     }
 }
