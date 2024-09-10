@@ -1,18 +1,15 @@
+using Assets.Code.Weapon;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bazooka : MonoBehaviour
+public sealed class Bazooka : Weapon
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void Fire()
     {
-        
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void Recharge()
     {
-        
     }
 }
