@@ -1,15 +1,30 @@
-using Assets.Code.Weapon;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public sealed class Bazooka : Weapon
+namespace Weapon
 {
-    public override void Fire()
+    public sealed class Bazooka : Weapon
     {
-    }
+        [SerializeField] private Rocket _rocketBrefab;
+        private Rocket _initiateRocket;
 
-    public override void Recharge()
-    {
+        public override void Fire()
+        {
+            if (_initiateRocket)
+            {
+                _initiateRocket.Run(_barrel.forward * Force);
+                _initiateRocket = null;
+            }
+        }
+
+        public override void Recharge()
+        {
+            if (_initiateRocket != null)
+            {
+                return;
+            }
+
+            _initiateRocket = Instantiate(_rocketBrefab, _barrel);
+            _initiateRocket.Sleep(_barrel.position);
+        }
     }
 }

@@ -3,7 +3,7 @@ using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 
-namespace Assets.Code.Weapon
+namespace Weapon
 {
     [RequireComponent(typeof(Rigidbody))]
 

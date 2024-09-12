@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Assets.Code.Components
@@ -9,6 +11,18 @@ namespace Assets.Code.Components
         [SerializeField] private int _liveTime;
 
         private bool _isAlive = true;
+        private int _maxHp;
+
+        public int MaxHp { get
+            {
+                return _maxHp;
+            }
+        }
+
+        private void Start()
+        {
+            _maxHp = _health;
+        }
 
         public bool CanTakeDamage(int damage)
         {
@@ -59,6 +73,5 @@ namespace Assets.Code.Components
 
             Destroy(gameObject);
         }
-
     }
 }
