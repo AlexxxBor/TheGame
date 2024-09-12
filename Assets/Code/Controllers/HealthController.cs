@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections;
-using Unity.VisualScripting;
+﻿using System.Collections;
 using UnityEngine;
 
-namespace Assets.Code.Components
+namespace Assets.Controllers
 {
     internal class HealthController : MonoBehaviour
     {
@@ -65,7 +63,6 @@ namespace Assets.Code.Components
                 {
                     
                     color.a = alpha;
-                    Debug.Log(color.a);
                     renderer.material.color = color;
                     yield return new WaitForSeconds(0.1f);
                 }

@@ -1,4 +1,4 @@
-using Assets.Code.Components;
+using Assets.Controllers;
 using Unity.VisualScripting;
 using UnityEngine;
 
