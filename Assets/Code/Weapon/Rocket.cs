@@ -22,6 +22,8 @@ namespace Weapon
 
         private void OnCollisionEnter(Collision other)
         {
+            new GameObject().AddComponent<Explosion>();
+
             Destroy(gameObject);
 
             float radius = _scale / 2;
