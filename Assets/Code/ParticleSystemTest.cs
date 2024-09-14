@@ -5,7 +5,6 @@ namespace Assets.Code
     internal class ParticleSystemTest : MonoBehaviour
     {
         [SerializeField] private GameObject _explosionEffect;
-        [SerializeField] private bool _activate = false;
 
         private GameObject _effectCopy;
         private ParticleSystem _particles;
@@ -18,9 +17,9 @@ namespace Assets.Code
             _particles = _effectCopy.GetComponent<ParticleSystem>();
         }
 
-        private void OnValidate()
+        private void Update()
         {
-            if (_activate)
+            if (Input.GetMouseButtonDown(0))
             {
                 _particles.Play();
             }

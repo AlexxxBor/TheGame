@@ -1,4 +1,5 @@
 using Assets.Controllers;
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -10,6 +11,7 @@ namespace Weapon
     {
         [SerializeField] private float _powerExplosion;
         [SerializeField] private float _scale;
+        [SerializeField] public GameObject _explosionEffectPrefab;
 
         private Rigidbody _rigidBody;
         private Collider[] _collidedObjects;
@@ -22,14 +24,14 @@ namespace Weapon
 
         private void OnCollisionEnter(Collision other)
         {
-            new GameObject().AddComponent<Explosion>();
-
             Destroy(gameObject);
+            Instantiate(_explosionEffectPrefab, transform);
 
             float radius = _scale / 2;
             Vector3 center = other.contacts[0].point;
 
             int countofCollisions = Physics.OverlapSphereNonAlloc(center, radius, _collidedObjects);
+            Debug.DrawLine(center, new Vector3(0, radius, 0), Color.red);
 
             for (int i = 0; i < countofCollisions; i++)
             {
