@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Weapon
@@ -8,7 +9,7 @@ namespace Weapon
         [SerializeField] private Bullet _bulletPrefab;
 
         private Transform _bulletRoot;
-        private Bullet[] _bullets;
+        private readonly Queue<Bullet> _bullets;
 
         private void Start()
         {
@@ -41,42 +42,6 @@ namespace Weapon
 
                 _bullets[i] = bullet;
             }
-        }
-
-        private bool TryGetBullet(out Bullet bullet)
-        {
-            int candidate = -1;
-
-            if (_bullets == null)
-            {
-                bullet = default;
-                return false;
-            }
-
-            for (int i = 0; i < _bullets.Length; i++)
-            {
-                if (_bullets[i] == null)
-                {
-                    continue;
-                }
-
-                if (_bullets[i].IsActive)
-                {
-                    continue;
-                }
-
-                candidate = i;
-                break;
-            }
-
-            if (candidate == -1)
-            {
-                bullet = default;
-                return false;
-            }
-
-            bullet = _bullets[candidate];
-            return true;
         }
     }
 }
