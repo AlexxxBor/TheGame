@@ -148,3 +148,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _force: 0.02
   _lifeTime: 7
+  _bulletHoles:
+  - {fileID: 11400000, guid: a78094c61ff7f864294239bfcb2d0d0f, type: 2}
+  - {fileID: 11400000, guid: 5b443c2f38e886541b8a1c9ffe655d8e, type: 2}

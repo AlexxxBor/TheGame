@@ -10,8 +10,10 @@ namespace Weapon
         private Transform _bulletRoot;
         private Bullet[] _bullets;
 
-        private void Start()
+        protected override void Start()
         {
+            base.Start();
+
             _bulletRoot = new GameObject("BulletRoot").transform;
             Recharge();
         }

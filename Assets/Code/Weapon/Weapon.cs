@@ -4,18 +4,27 @@ namespace Weapon
 {
     public abstract class Weapon : MonoBehaviour
     {
+        [SerializeField] protected int _level = 1;
         [SerializeField] protected Transform _barrel;
-        [SerializeField] private float _force;
-        [SerializeField] private float _shotDelay;
-
-        public float LastShootTime { get; protected set; }
-        protected bool CanShoot { get; private set; }
+        [SerializeField] private WeaponUpgradeData _upgradeData;
         
-        protected float Force
+        protected bool CanShoot { get; private set; }
+        protected float Force { get; private set; }
+        protected float LastShootTime {  get; set; }
+
+        private float _shotDelay;
+
+        protected virtual void Start()
         {
-            get
+            if(_upgradeData.TryGetWeaponData(_level, out WeaponData data))
             {
-                return _force;
+                _shotDelay = data.ShotDelay;
+                Force = data.Force;
+            }
+            else
+            {
+                _shotDelay = _upgradeData.WeaponDataDefault.ShotDelay;
+                Force = _upgradeData.WeaponDataDefault.Force;
             }
         }
 

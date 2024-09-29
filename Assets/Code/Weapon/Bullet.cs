@@ -12,6 +12,10 @@ namespace Weapon
         [SerializeField] float _force;
         [SerializeField] float _lifeTime = 7.0f;
 
+        [SerializeField] private BulletProjectorData[] _bulletHoles; //
+        private BulletProjectorHelper _projectorHelper; //
+
+
         public bool IsActive
         {
             get
@@ -26,6 +30,7 @@ namespace Weapon
         private void Awake()
         {
             _rigidbody = GetComponent<Rigidbody>();
+            _projectorHelper = new BulletProjectorHelper(_bulletHoles);
         }
 
         private void OnCollisionEnter(Collision other)
@@ -36,6 +41,8 @@ namespace Weapon
             {
                 if (healthController.CanTakeDamage(1))
                 {
+                    _projectorHelper.CreateBulletHole(other.contacts[0].point, other.contacts[0].normal, other.transform); //
+
                     return;
                 }
 

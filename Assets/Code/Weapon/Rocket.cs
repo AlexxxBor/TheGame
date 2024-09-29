@@ -9,25 +9,29 @@ namespace Weapon
 
     public class Rocket : MonoBehaviour
     {
+        private const int COLLISION_SIZE = 128;
+
         [SerializeField] private float _powerExplosion;
         [SerializeField] private float _scale;
         [SerializeField] public GameObject _explosionEffectPrefab;
 
         private Rigidbody _rigidBody;
-        private Collider[] _collidedObjects;
+        private readonly Collider[] _collidedObjects = new Collider[COLLISION_SIZE];
+        private readonly ExplosionFactory _explosionFactory = new ExplosionFactory(); //
 
         private void Awake()
         {
             _rigidBody = GetComponent<Rigidbody>();
-            _collidedObjects = new Collider[128];
         }
 
         private void OnCollisionEnter(Collision other)
         {
+            _explosionFactory.Create(); //
+
             Destroy(gameObject);
             Instantiate(_explosionEffectPrefab, transform);
 
-            float radius = _scale / 2;
+            float radius = _scale / 2; // Лучше умножить на 0.5f
             Vector3 center = other.contacts[0].point;
 
             int countofCollisions = Physics.OverlapSphereNonAlloc(center, radius, _collidedObjects);
