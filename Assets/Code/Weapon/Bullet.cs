@@ -46,11 +46,7 @@ namespace Weapon
                     return;
                 }
 
-                if (other.collider.TryGetComponent(out Rigidbody rigidbody) == false)
-                {
-                    rigidbody = other.collider.AddComponent<Rigidbody>();
-                }
-
+                Rigidbody rigidbody = other.collider.gameObject.GetOrAddComponent<Rigidbody>();
                 rigidbody.AddForce(_rigidbody.velocity * _force, ForceMode.Impulse);
             }
         }

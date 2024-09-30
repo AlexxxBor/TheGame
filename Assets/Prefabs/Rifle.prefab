@@ -315,7 +315,7 @@ Transform:
   - {fileID: 3916092362245996211}
   - {fileID: 5186937555214541825}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &3550006180302531572
 Animator:
@@ -350,9 +350,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40d0a932c4fb60f46979d708a4c2761e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _level: 1
   _barrel: {fileID: 5186937555214541825}
-  _force: 99
-  _shotDelay: 0.1
+  _upgradeData: {fileID: 11400000, guid: 5e82258f34b834d45a83c0d275247b33, type: 2}
   _countInClip: 50
   _bulletPrefab: {fileID: 9119672948497111035, guid: 6678c2c79a2067547a82f96973c15ecc,
     type: 3}

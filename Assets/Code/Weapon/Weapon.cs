@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Weapon
 {
@@ -28,6 +29,10 @@ namespace Weapon
             }
         }
 
+        public abstract void Fire();
+
+        public abstract void Recharge();
+
         private void Update()
         {
             CanShoot = _shotDelay <= LastShootTime;
@@ -40,8 +45,9 @@ namespace Weapon
             LastShootTime += Time.deltaTime;
         }
 
-        public abstract void Fire();
-
-        public abstract void Recharge();
+        public void SetActive(bool isActive)
+        {
+            gameObject.SetActive(isActive);
+        }
     }
 }

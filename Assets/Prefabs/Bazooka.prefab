@@ -33,7 +33,7 @@ Transform:
   m_Children:
   - {fileID: 7168274896254498268}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: -90}
 --- !u!33 &7427212944900752221
 MeshFilter:
@@ -97,9 +97,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b965fa246f310514da5aedd70240aa34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _level: 1
   _barrel: {fileID: 7168274896254498268}
-  _force: 100
-  _shotDelay: 0
+  _upgradeData: {fileID: 11400000, guid: 3b863da2108328c4ebe7b3447a4e1167, type: 2}
   _rocketBrefab: {fileID: 9338489014279643, guid: bcab94f5d1da512469646993ef116029,
     type: 3}
 --- !u!1 &6561930568700942794

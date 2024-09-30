@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 59acc35987a404040bb18ef5bfcd236d, type: 3}
-  m_Name: WeaponDataGunLevelOne
+  m_Name: WeaponDataBazookaLevelTwo
   m_EditorClassIdentifier: 
-  _force: 35
-  _shotDelay: 0.45
+  _force: 700
+  _shotDelay: 1.2

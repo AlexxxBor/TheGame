@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5e0a6a926d7c854888bb75e704ff044, type: 3}
+  m_Name: WeaponUpgradeDataBazooka
+  m_EditorClassIdentifier: 
+  _weaponData:
+  - Level: 1
+    Data: {fileID: 11400000, guid: 7291dc6b6e67bac49b8db5de4deecfd1, type: 2}
+  - Level: 2
+    Data: {fileID: 11400000, guid: 69c6b216d6aec474a8af6e770484d6ea, type: 2}
+  _weaponDataDefault: {fileID: 11400000, guid: c0a87aa74cc68df4695f68f8b1f04da8, type: 2}

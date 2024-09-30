@@ -7,6 +7,11 @@ namespace Weapon
         [SerializeField] private Rocket _rocketBrefab;
         private Rocket _initiateRocket;
 
+        protected override void Start()
+        {
+            base.Start();
+        }
+
         public override void Fire()
         {
             if (_initiateRocket)

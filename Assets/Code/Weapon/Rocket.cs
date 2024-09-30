@@ -17,7 +17,8 @@ namespace Weapon
 
         private Rigidbody _rigidBody;
         private readonly Collider[] _collidedObjects = new Collider[COLLISION_SIZE];
-        private readonly ExplosionFactory _explosionFactory = new ExplosionFactory(); //
+
+        //private readonly ExplosionFactory _explosionFactory = new ExplosionFactory(); //
 
         private void Awake()
         {
@@ -26,12 +27,12 @@ namespace Weapon
 
         private void OnCollisionEnter(Collision other)
         {
-            _explosionFactory.Create(); //
+            //_explosionFactory.Create(); //
 
             Destroy(gameObject);
             Instantiate(_explosionEffectPrefab, transform);
 
-            float radius = _scale / 2; // Лучше умножить на 0.5f
+            float radius = _scale * 0.5f; // / 2 
             Vector3 center = other.contacts[0].point;
 
             int countofCollisions = Physics.OverlapSphereNonAlloc(center, radius, _collidedObjects);
@@ -48,12 +49,9 @@ namespace Weapon
                         return;
                     }
 
-                    if (healthController.TryGetComponent(out Rigidbody rigidBody) == false)
-                    {
-                        rigidBody = healthController.AddComponent<Rigidbody>();
-                    }
-
-                    rigidBody.AddExplosionForce(_powerExplosion, center, radius);
+                    Rigidbody rigidbody = other.collider.gameObject.GetOrAddComponent<Rigidbody>();
+                    Debug.LogWarning(rigidbody);
+                    rigidbody.AddExplosionForce(_powerExplosion, center, radius);
                 }
             }
         }

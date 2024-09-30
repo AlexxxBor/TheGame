@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public sealed class ExplosionFactory : MonoBehaviour
+public sealed class ExplosionFactory
 {
     public Explosion Create()
     {
