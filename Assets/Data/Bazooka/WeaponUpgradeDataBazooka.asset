@@ -17,4 +17,4 @@ MonoBehaviour:
     Data: {fileID: 11400000, guid: 7291dc6b6e67bac49b8db5de4deecfd1, type: 2}
   - Level: 2
     Data: {fileID: 11400000, guid: 69c6b216d6aec474a8af6e770484d6ea, type: 2}
-  _weaponDataDefault: {fileID: 11400000, guid: c0a87aa74cc68df4695f68f8b1f04da8, type: 2}
+  _weaponDataDefault: {fileID: 11400000, guid: 9617d21d014817248bfc66f61acc719c, type: 2}

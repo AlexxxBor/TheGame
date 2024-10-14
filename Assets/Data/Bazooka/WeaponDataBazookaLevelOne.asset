@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59acc35987a404040bb18ef5bfcd236d, type: 3}
+  m_Script: {fileID: 11500000, guid: 7aed974a486f5ba4bacf16e0351ca5b8, type: 3}
   m_Name: WeaponDataBazookaLevelOne
   m_EditorClassIdentifier: 
-  _force: 30
-  _shotDelay: 5
+  _force: 99
+  _shotDelay: 2
+  _rocketBangForce: 150

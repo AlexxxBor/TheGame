@@ -1,6 +1,4 @@
 using Assets.Controllers;
-using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Weapon
@@ -11,14 +9,16 @@ namespace Weapon
     {
         private const int COLLISION_SIZE = 128;
 
-        [SerializeField] private float _powerExplosion;
         [SerializeField] private float _scale;
+        [SerializeField] private WeaponUpgradeData _upgradeData;
+
         [SerializeField] public GameObject _explosionEffectPrefab;
 
         private Rigidbody _rigidBody;
         private readonly Collider[] _collidedObjects = new Collider[COLLISION_SIZE];
+        private float _bangForce;
 
-        //private readonly ExplosionFactory _explosionFactory = new ExplosionFactory(); //
+        protected int _level = 1;
 
         private void Awake()
         {
@@ -27,12 +27,10 @@ namespace Weapon
 
         private void OnCollisionEnter(Collision other)
         {
-            //_explosionFactory.Create(); //
-
             Destroy(gameObject);
             Instantiate(_explosionEffectPrefab, transform);
 
-            float radius = _scale * 0.5f; // / 2 
+            float radius = _scale * 0.5f;
             Vector3 center = other.contacts[0].point;
 
             int countofCollisions = Physics.OverlapSphereNonAlloc(center, radius, _collidedObjects);
@@ -50,7 +48,17 @@ namespace Weapon
                     }
 
                     Rigidbody rigidbody = _collidedObjects[i].gameObject.GetOrAddRigidbody();
-                    rigidbody.AddExplosionForce(_powerExplosion, center, radius);
+
+                    if (_upgradeData.TryGetWeaponData(_level, out WeaponData rocketBangForceData))
+                    {
+                        _bangForce = ((WeaponDataBazooka)rocketBangForceData).RocketBangForce;
+                    }
+                    else
+                    {
+                        _bangForce = ((WeaponDataBazooka)_upgradeData.WeaponDataDefault).RocketBangForce;
+                    }
+
+                    rigidbody.AddExplosionForce(_bangForce, center, radius);
                 }
             }
         }

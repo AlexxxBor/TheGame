@@ -157,8 +157,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a58fb99911e38b41bb22eb076d683dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _powerExplosion: 999
   _scale: 7
+  _upgradeData: {fileID: 11400000, guid: 3b863da2108328c4ebe7b3447a4e1167, type: 2}
   _explosionEffectPrefab: {fileID: 1121192042590650, guid: e1b08032bec16ba4eb1ae23cbd572664,
     type: 3}
 --- !u!136 &389624323905525190

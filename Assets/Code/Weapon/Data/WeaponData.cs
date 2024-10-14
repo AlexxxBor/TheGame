@@ -1,11 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Weapon
 {
     [CreateAssetMenu(fileName = nameof(WeaponData), menuName = "Data/Weapon/Data")]
-    public sealed class WeaponData : ScriptableObject
+    public class WeaponData : ScriptableObject
     {
         [SerializeField] private float _force;
         [SerializeField] private float _shotDelay;
