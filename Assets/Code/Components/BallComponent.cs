@@ -30,8 +30,11 @@ public class BallComponent : MonoBehaviour
     }
     public void Throw()
     {
-        _ball.transform.SetParent(null);
-        _ballRigidbody.AddForce(new Vector3(0, _throwForce, 0), ForceMode.Impulse);
+        if (_ball.transform.parent != null)
+        {
+            _ball.transform.SetParent(null);
+            _ballRigidbody.AddForce(new Vector3(0, _throwForce, 0), ForceMode.Impulse);
+        }
     }
 
     public void StopMoving()

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BallController : MonoBehaviour
@@ -25,7 +23,7 @@ public class BallController : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.TryGetComponent<HealthComponent>(out HealthComponent brickHealth))
+        if (other.gameObject.TryGetComponent(out HealthComponent brickHealth))
         {
             brickHealth.Health -= _damage;
         }
@@ -38,6 +36,11 @@ public class BallController : MonoBehaviour
             _body.velocity = Vector3.zero;
             transform.position = _platform.transform.position;
             transform.SetParent(_platform.transform);
+        }
+
+        if (other.gameObject.transform.TryGetComponent(out CornerFactorDeviation factor))
+        {
+            _body.AddForce(new Vector3(factor.Deviation, _body.velocity.magnitude));
         }
     }
 }
