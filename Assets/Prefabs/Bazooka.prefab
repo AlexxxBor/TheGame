@@ -100,7 +100,7 @@ MonoBehaviour:
   _level: 1
   _barrel: {fileID: 7168274896254498268}
   _upgradeData: {fileID: 11400000, guid: 3b863da2108328c4ebe7b3447a4e1167, type: 2}
-  _rocketBrefab: {fileID: 9338489014279643, guid: bcab94f5d1da512469646993ef116029,
+  _rocketPrefab: {fileID: 9338489014279643, guid: bcab94f5d1da512469646993ef116029,
     type: 3}
 --- !u!1 &6561930568700942794
 GameObject:

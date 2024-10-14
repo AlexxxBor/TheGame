@@ -49,8 +49,7 @@ namespace Weapon
                         return;
                     }
 
-                    Rigidbody rigidbody = other.collider.gameObject.GetOrAddComponent<Rigidbody>();
-                    Debug.LogWarning(rigidbody);
+                    Rigidbody rigidbody = _collidedObjects[i].gameObject.GetOrAddRigidbody();
                     rigidbody.AddExplosionForce(_powerExplosion, center, radius);
                 }
             }

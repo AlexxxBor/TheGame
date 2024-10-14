@@ -4,7 +4,7 @@ namespace Weapon
 {
     public sealed class Bazooka : Weapon
     {
-        [SerializeField] private Rocket _rocketBrefab;
+        [SerializeField] private Rocket _rocketPrefab;
         private Rocket _initiateRocket;
 
         protected override void Start()
@@ -28,7 +28,7 @@ namespace Weapon
                 return;
             }
 
-            _initiateRocket = Instantiate(_rocketBrefab, _barrel);
+            _initiateRocket = Instantiate(_rocketPrefab, _barrel);
             _initiateRocket.Sleep(_barrel.position);
         }
     }
